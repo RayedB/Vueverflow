@@ -42,10 +42,10 @@ export default new Vuex.Store({
   },
   mutations: {
     upvote: (state, payload) => {
-      state.questions[1].votes++
+      state.questions[payload].votes++
     },
     downvote: (state, payload) => {
-      state.questions[1].votes--
+      state.questions[payload].votes--
     }
   },
   actions: {

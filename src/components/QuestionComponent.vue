@@ -6,7 +6,7 @@
           <v-flex d-flex>
             <v-layout row wrap>
               <v-flex d-flex xs12>
-                <v-card color="red lighten-2" dark @click="upvote(2)">
+                <v-card color="red lighten-2" dark @click="upvote(questionIndex+1)">
                   <v-card-text> + </v-card-text>
                 </v-card>
               </v-flex>
@@ -15,7 +15,7 @@
                   <v-card-text>{{ votes }}</v-card-text>
                 </v-card>
               </v-flex>
-              <v-flex d-flex xs12 @click="downvote(1)">
+              <v-flex d-flex xs12 @click="downvote(questionIndex+1)">
                 <v-card color="red lighten-2" dark>
                   <v-card-text>-</v-card-text>
                 </v-card>
@@ -37,6 +37,7 @@
 <script>
 import { mapActions } from 'vuex'
 export default {
+  props: ['questionIndex'],
   data: function(){
     return {
       status: 'test',
@@ -47,13 +48,13 @@ export default {
       return this.$store.state.count
     },
     title() {
-      return this.$store.state.questions[1].title
+      return this.$store.state.questions[this.questionIndex+1].title
     },
     votes() {
-      return this.$store.state.questions[1].votes
+      return this.$store.state.questions[this.questionIndex+1].votes
     },
     content() {
-      return this.$store.state.questions[1].content
+      return this.$store.state.questions[this.questionIndex+1].content
     }
   },
   methods:{

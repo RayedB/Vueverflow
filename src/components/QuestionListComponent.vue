@@ -10,9 +10,8 @@
       <v-layout row>
         <p>Lorem ipsum JavaScript (not to be confused with Java) is a high-level, dynamic, multi-paradigm, object-oriented, prototype-based, weakly-typed language used for both client-side and server-side scripting. Its primary use is in rendering and performing manipulation of web pages. Use this tag for questions regarding ECMAScript and its various dialects/implementations (excluding ActionScript and Google-Apps-Script).</p>
       </v-layout>
-      <v-layout row class="question-container" v-for="(n, index) in numberOfQuestions">
-        {{index}}
-        <app-question></app-question>
+      <v-layout row class="question-container" v-for="(n, index) in numberOfQuestions" :key="index">
+        <app-question :questionIndex="index"></app-question>
       </v-layout>
       <!-- <v-layout row class="question-container">
         <app-question></app-question>
