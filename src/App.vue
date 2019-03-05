@@ -101,7 +101,7 @@
       </v-btn>
     </v-toolbar>
     <v-content>
-      <app-question-list></app-question-list>
+      <router-view></router-view>
     </v-content>
     <v-btn
       fab

@@ -6,7 +6,7 @@
           <v-flex d-flex>
             <v-layout row wrap>
               <v-flex d-flex xs12>
-                <v-card color="red lighten-2" dark @click="upvote(questionIndex+1)">
+                <v-card color="red lighten-2" dark @click="upvote({type: 'questions', id: questionIndex+1})">
                   <v-card-text> + </v-card-text>
                 </v-card>
               </v-flex>
@@ -15,7 +15,7 @@
                   <v-card-text>{{ votes }}</v-card-text>
                 </v-card>
               </v-flex>
-              <v-flex d-flex xs12 @click="downvote(questionIndex+1)">
+              <v-flex d-flex xs12 @click="downvote({type: 'questions', id: questionIndex+1})">
                 <v-card color="red lighten-2" dark>
                   <v-card-text>-</v-card-text>
                 </v-card>
@@ -25,10 +25,12 @@
         </v-layout>
       </v-flex>
       <v-flex d-flex xs12 md11>
-        <v-card color="blue lighten-2" dark>
+        <router-link :to="'question/'+(questionIndex+1) ">
+          <v-card color="blue lighten-2" dark>
           <v-card-title>{{title}}</v-card-title>
           <v-card-text>{{ content }}</v-card-text>
         </v-card>
+        </router-link>
       </v-flex>
     </v-layout>
   </v-container>
