@@ -3,6 +3,9 @@ import Router from 'vue-router'
 // import Home from './views/Home.vue'
 import QuestionList from './components/QuestionListComponent.vue'
 import QuestionDetail from './components/QuestionDetailComponent.vue'
+import AskQuestion from './components/AskQuestionComponent.vue'
+import User from './components/UserComponent.vue'
+import Consultants from './components/UsersListComponent.vue'
 
 Vue.use(Router)
 
@@ -16,6 +19,11 @@ export default new Router({
       component: QuestionList
     },
     {
+      path: '/question/ask',
+      name: 'ask',
+      component: AskQuestion
+    },
+    {
       path: '/question/:id',
       name: 'question',
       component: QuestionDetail
@@ -23,6 +31,15 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       // component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+    },
+    {
+      path: '/user/:id',
+      name: 'user',
+      component: User
+    },
+    {
+      path: '/users',
+      component: Consultants
     }
   ]
 })

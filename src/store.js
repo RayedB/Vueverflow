@@ -29,7 +29,7 @@ export default new Vuex.Store({
         votes: 12,
         answers: 0,
         validated: false,
-        author: 'Mohamed Mechbal',
+        author: 'Mohamed Camara',
         tags: [1, 2, 5]
       },
       4: {
@@ -38,7 +38,7 @@ export default new Vuex.Store({
         votes: 2,
         answers: 0,
         validated: false,
-        author: 'François Bosca',
+        author: 'Gautier Sebire',
         tags: [2]
       }
     },
@@ -57,6 +57,7 @@ export default new Vuex.Store({
         name: 'Bilan'
       }
     },
+    tagsList: [1, 2, 3, 5],
     answers: {
       1: {
         author: 'Marcel Lequesne',
@@ -101,7 +102,120 @@ export default new Vuex.Store({
         validated: true
       }
     },
-    answersList: [1, 2, 3, 4, 5, 6]
+    answersList: [1, 2, 3, 4, 5, 6],
+    users: {
+      1: {
+        firstName: 'Marc',
+        lastName: 'Ammeux',
+        email: 'marc.ammeux@ieseg.fr',
+        position: 'Senior Consultant',
+        office: 'Paris',
+        questions: 2,
+        answers: 0,
+        comments: 3,
+        tags: ['BFR', 'Tag 3']
+      },
+      2: {
+        firstName: 'Lucile',
+        lastName: 'Jeunemaître',
+        email: 'lucile.jeunemaitre@gmail.com',
+        position: 'External professional',
+        office: 'Bordeaux',
+        questions: 2,
+        answers: 0,
+        comments: 3,
+        tags: ['Tag 2', 'Tag 5']
+      },
+      3: {
+        firstName: 'Manon',
+        lastName: 'Roux',
+        email: 'Manon.roux@gmail.com',
+        position: 'Intern',
+        office: 'Paris',
+        questions: 1,
+        answers: 0,
+        comments: 0,
+        tags: ['Tag 1', 'Tag 3', 'Tag 5']
+      },
+      4: {
+        firstName: 'Charlotte',
+        lastName: 'Salmon',
+        email: 'charlotte.salmon@ieseg.fr',
+        position: 'Manager',
+        office: 'Paris',
+        questions: 21,
+        answers: 11,
+        comments: 41,
+        tags: ['Tag 1', 'Tag 3']
+      },
+      5: {
+        firstName: 'Frédéric',
+        lastName: 'Bry',
+        email: 'frederic.bry@ieseg.fr',
+        position: 'Senior Manager',
+        office: 'Lille',
+        questions: 11,
+        answers: 22,
+        comments: 5,
+        tags: ['Tag 1', 'Tag 3']
+      },
+      6: {
+        firstName: 'Marcel',
+        lastName: 'Lequesne',
+        email: 'marcel.lequesne@ieseg.fr',
+        position: 'Senior Manager',
+        office: 'Lille',
+        questions: 13,
+        answers: 13,
+        comments: 14,
+        tags: ['Tag 1', 'Tag 3']
+      },
+      7: {
+        firstName: 'Jessica',
+        lastName: 'Calleti',
+        email: 'jessica.Calleti@gmail.com',
+        position: 'Office Manager',
+        office: 'Paris',
+        questions: 2,
+        answers: 0,
+        comments: 0,
+        tags: ['Tag 1', 'Tag 3']
+      },
+      8: {
+        firstName: 'Thomas',
+        lastName: 'Gobeaux',
+        email: 'thomas.gobeaux@ieseg.fr',
+        position: 'Senior Consultant',
+        office: 'Lille',
+        questions: 2,
+        answers: 1,
+        comments: 3,
+        tags: ['Tag 1', 'Tag 3']
+      },
+      9: {
+        firstName: 'Gautier',
+        lastName: 'Sebire',
+        email: 'gautier.sebire@ieseg.fr',
+        position: 'Senior Consultant',
+        office: 'Lille',
+        questions: 4,
+        answers: 1,
+        comments: 3,
+        tags: ['Tag 1', 'Tag 3']
+      },
+      10: {
+        firstName: 'Mohamed',
+        lastName: 'Camara',
+        email: 'mohamed.camara@ieseg.fr',
+        position: 'Senior Consultant',
+        office: 'Rennes',
+        questions: 2,
+        answers: 2,
+        comments: 3,
+        tags: ['Tag 1', 'Tag 3']
+      }
+    },
+    usersList: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   },
   getters: {
     numberOfQuestions: state => {
@@ -119,11 +233,18 @@ export default new Vuex.Store({
       }
       console.log(correspondingAnswers)
       return correspondingAnswers
-      // return state.answers.map(answers => console.log(answers))
     },
     question: state => questionId => {
-      // return state.questions[payload]
       return state.questions[questionId]
+    },
+    tags: state => {
+      return state.tags
+    },
+    consultants: state => {
+      return state.users
+    },
+    consultant: state => consultant => {
+      return state.users[consultant]
     }
 
   },

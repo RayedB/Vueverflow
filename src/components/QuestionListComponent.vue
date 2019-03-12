@@ -4,7 +4,7 @@
       <v-layout align-center justify-space-between row>
         <h1>Questions </h1>
         <div>
-          <v-btn small color="primary">Poser une question</v-btn>
+          <v-btn small color="primary" :to="'question/ask'">Poser une question</v-btn>
         </div>
       </v-layout>
       <v-layout row>

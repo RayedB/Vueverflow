@@ -25,12 +25,14 @@
         </v-layout>
       </v-flex>
       <v-flex d-flex xs12 md11>
-        <router-link :to="'question/'+(questionIndex+1) ">
+
           <v-card color="blue lighten-2" dark>
-          <v-card-title>{{title}}</v-card-title>
-          <v-card-text>{{ content }}</v-card-text>
-        </v-card>
-        </router-link>
+            <router-link :to="'question/'+(questionIndex+1) ">
+              <v-card-title>{{title}}</v-card-title>
+              <v-card-text>{{ content }}</v-card-text>
+            </router-link>
+              <v-card-text class="text-xs-right pt-4">asked by {{author}}</v-card-text>
+          </v-card>
       </v-flex>
     </v-layout>
   </v-container>
@@ -57,6 +59,9 @@ export default {
     },
     content() {
       return this.$store.state.questions[this.questionIndex+1].content
+    },
+    author() {
+      return this.$store.state.questions[this.questionIndex+1].author
     }
   },
   methods:{
