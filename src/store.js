@@ -245,6 +245,12 @@ export default new Vuex.Store({
     },
     consultant: state => consultant => {
       return state.users[consultant]
+    },
+    consultantQuestion: state => {
+      return Object.values(state.questions)
+    },
+    consultantAnswers: state => {
+      return Object.values(state.answers)
     }
 
   },

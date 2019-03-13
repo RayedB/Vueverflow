@@ -17,11 +17,9 @@
           <v-btn flat color="blue" v-for="(tag,index) in consultant(id).tags" :key=index >{{tag}}</v-btn>
 
           <h3>Questions</h3>
-          <v-card-text>Question 1</v-card-text>
-          <v-card-text>Question 2</v-card-text>
-          <h3>Answers</h3>
-          <v-card-text>Answers 1</v-card-text>
-          <v-card-text>Answers 2</v-card-text>
+            <div v-for="(question,index) in consultantQuestion" :key=index>
+              <v-card-text v-if="question.author == consultant(id).firstName + ' ' + consultant(id).lastName ">{{question.title}}</v-card-text>
+            </div>
         </v-card>
       </v-flex>
     </v-layout>
@@ -37,7 +35,9 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'consultant'
+      'consultant',
+      'consultantQuestion',
+      'consultantAnswers'
     ])
   }
 
