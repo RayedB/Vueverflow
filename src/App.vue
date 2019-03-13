@@ -14,7 +14,7 @@
             row
             align-center
           >
-            <v-flex xs6>
+            <v-flex xs6 >
               <v-subheader v-if="item.heading">
                 {{ item.heading }}
               </v-subheader>
@@ -29,9 +29,10 @@
             v-model="item.model"
             :prepend-icon="item.model ? item.icon : item['icon-alt']"
             append-icon=""
+            :to="item.url"
           >
             <v-list-tile slot="activator">
-              <v-list-tile-content>
+              <v-list-tile-content :to="item.url">
                 <v-list-tile-title>
                   {{ item.text }}
                 </v-list-tile-title>
@@ -52,7 +53,7 @@
               </v-list-tile-content>
             </v-list-tile>
           </v-list-group>
-          <v-list-tile v-else :key="item.text" @click="">
+          <v-list-tile v-else :key="item.text" :to="item.url">
             <v-list-tile-action>
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-tile-action>
@@ -186,34 +187,9 @@
       dialog: false,
       drawer: null,
       items: [
-        { icon: 'home', text: 'Accueil' },
-        { icon: 'local_offer', text: 'Tags' },
-        { icon: 'account_circle', text: 'Consultants' },
-        {
-          icon: 'keyboard_arrow_up',
-          'icon-alt': 'keyboard_arrow_down',
-          text: 'Labels',
-          model: true,
-          children: [
-            { icon: 'add', text: 'Create label' }
-          ]
-        },
-        {
-          icon: 'keyboard_arrow_up',
-          'icon-alt': 'keyboard_arrow_down',
-          text: 'More',
-          model: false,
-          children: [
-            { text: 'Import' },
-            { text: 'Export' },
-            { text: 'Print' },
-            { text: 'Undo changes' },
-            { text: 'Other contacts' }
-          ]
-        },
-        { icon: 'settings', text: 'Settings' },
-        { icon: 'chat_bubble', text: 'Vos réponses' },
-        { icon: 'help', text: 'Vos questions' },
+        { icon: 'home', text: 'Questions', url:'/' },
+        { icon: 'local_offer', text: 'Tags', url: '/tags' },
+        { icon: 'account_circle', text: 'Consultants', url: '/users' },
       ]
     }),
     props: {

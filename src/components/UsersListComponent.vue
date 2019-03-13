@@ -13,7 +13,6 @@
       </v-card>
       </v-flex>
     </v-layout>
-    {{consultants}}
   </v-container>
 </template>
 <script>

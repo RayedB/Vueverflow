@@ -31,6 +31,7 @@
               <v-card-title>{{title}}</v-card-title>
               <v-card-text>{{ content }}</v-card-text>
             </router-link>
+              <v-btn v-for="(tag,index) in tags" :key=index flat color="yellow">{{tag}}</v-btn>
               <v-card-text class="text-xs-right pt-4">asked by {{author}}</v-card-text>
           </v-card>
       </v-flex>
@@ -62,6 +63,9 @@ export default {
     },
     author() {
       return this.$store.state.questions[this.questionIndex+1].author
+    },
+    tags() {
+      return this.$store.state.questions[this.questionIndex+1].tags
     }
   },
   methods:{
